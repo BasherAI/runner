@@ -1,0 +1,18 @@
+{
+  "name": "unixgpt-runner",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "console-stamp": "^3.1.1",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.19.2",
+    "find-config": "^1.0.0",
+    "http": "^0.0.1-security",
+    "public-ip": "^6.0.1",
+    "socket.io": "^4.7.1",
+    "uuid": "^9.0.0"
+  }
+}
