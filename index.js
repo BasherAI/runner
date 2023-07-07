@@ -12,9 +12,10 @@ import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 
 import { setupSocket } from "./socket";
+import { PORT, TOKEN } from "./constants";
 
 let server;
-const serverFactory = (handler, opts) => {
+const serverFactory = (handler) => {
   server = http.createServer((req, res) => {
     handler(req, res);
   });
@@ -34,7 +35,6 @@ fastify.ready((err) => {
     throw err;
   }
 
-  const port = parseInt(process.env.PORT || "3000", 10);
-  server.listen({ port });
-  console.log(`Server is now listening on port ${port}`);
+  server.listen({ port: PORT });
+  console.log(`Your runner token ${TOKEN}`);
 });

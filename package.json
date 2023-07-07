@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "NODE_NO_WARNINGS=1 node --experimental-specifier-resolution=node index.js"
+  },
   "dependencies": {
     "@fastify/cors": "^8.3.0",
     "console-stamp": "^3.1.1",
@@ -13,6 +16,7 @@
     "http": "^0.0.1-security",
     "public-ip": "^6.0.1",
     "socket.io": "^4.7.1",
+    "socket.io-client": "^4.7.1",
     "uuid": "^9.0.0"
   }
 }
