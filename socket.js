@@ -1,10 +1,10 @@
 import { promisify } from "util";
 import { exec } from "child_process";
 import { Server } from "socket.io";
+import { io } from "socket.io-client";
 import { publicIpv4 } from "public-ip";
 
 import { TOKEN } from "./constants";
-import { io } from "socket.io-client";
 
 const execAsync = promisify(exec);
 const ip = await publicIpv4();
@@ -28,14 +28,22 @@ export const setupSocket = (server) => {
   });
 
   io.on("connection", (socket) => {
+    process.on("exit", () => {
+      socket.emit("disconnectRunner", TOKEN);
+    });
+    process.on("SIGINT", () => {
+      socket.emit("disconnectRunner", TOKEN);
+      process.exit();
+    });
+
     socket.on("error", (err) => {
       console.error(err);
     });
     socket.on("execCommand", async (command) => {
       let response = {};
       try {
-        const output = await execAsync(command);
-        console.log(output);
+        const output = await execAsync(`cd ~ && ${command}`);
+
         response = {
           command,
           ...output,
