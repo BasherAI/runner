@@ -13,7 +13,6 @@
     "dotenv": "^16.3.1",
     "fastify": "^4.19.2",
     "find-config": "^1.0.0",
-    "http": "^0.0.1-security",
     "public-ip": "^6.0.1",
     "socket.io": "^4.7.1",
     "socket.io-client": "^4.7.1",
