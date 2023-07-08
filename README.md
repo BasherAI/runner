@@ -1,5 +1,5 @@
 # basher-runner
-A runner for Basher.
+A runner for Basher. Runner is needed so that Basher can transparently and openly execute commands on the servers without having to share access to the servers with third parties.
 
 ## Fast installation
 Execute this command in your shell:
