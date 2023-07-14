@@ -4,12 +4,12 @@ import { Server } from "socket.io";
 import { io } from "socket.io-client";
 import { publicIpv4 } from "public-ip";
 
-import { TOKEN } from "./constants";
+import { SERVER_URL, TOKEN } from "./constants";
 
 const execAsync = promisify(exec);
 const ip = await publicIpv4();
 
-const serverSocket = io("http://151.248.120.33:3001", {
+const serverSocket = io(SERVER_URL, {
   transports: ["websocket"],
 });
 serverSocket.on("connect", () => {

@@ -1,7 +1,3 @@
-import * as dotenv from "dotenv";
-import findConfig from "find-config";
-dotenv.config({ path: findConfig(".env") });
-
 import consoleStamp from "console-stamp";
 consoleStamp(console, {
   format: ":date(dd/mm/yyyy HH:MM:ss)",
